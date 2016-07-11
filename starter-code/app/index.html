@@ -21,11 +21,22 @@
         </header>
 
         <section id="cards" class='container-fluid' ng-controller="cardsController as cards">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-4">
+              <form ng-submit="addCard()">
+                <input type="text" name="newCard.question" ng-model="newCard.question" placeholder="Question on card">
+                <input type="text" name="newCard.answer" ng-model="newCard.answer" placeholder="Answer for the question">
+                <input type="submit" value="Save!">
+              </form>
+            </div>
+          </div>
+
           <div class='row'>
 
-            <div class='col-sm-6 col-md-6 col-lg-4' ng-repeat="card in cards.all" >
+            <div class='col-sm-6 col-md-6 col-lg-4' ng-repeat="card in cards" >
               <div class='card'>
                 <h4 class="card-title">{{card.question}}</h4>
+                <button type="delete" ng-click="deleteCard(card)">Delete</button>
                 <h6>Cards Against Assembly</h6>
               </div>
             </div>
