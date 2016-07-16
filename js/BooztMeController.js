@@ -13,24 +13,10 @@ function booztMeController($scope, $http){
 
   ////  Node API   /////
   function getContent (){
-
-    $scope.content = [
-          {
-            title: "Monkey Meme",
-            url: "http://img.memecdn.com/Cool-Story-Bro_o_91043.jpg"
-          },
-          {
-            title: "Cute Dog",
-            url: "http://www.windowsmode.com/wp-content/uploads/2015/08/HD-Dog-wallpaper.jpg"
-          },
-          {
-            title: "Baby Laughing",
-            url: "http://previews.123rf.com/images/flashon/flashon1109/flashon110900212/10686113-happy-big-laughing-7-month-old-African-American-baby-boy-Stock-Photo.jpg"
-          }]
-    // $http.get('http://localhost:3000/api/v1/flashcards')
-    //   .then(function(response){
-    //       $scope.cards = response.data;
-    //   });
+    $http.get('http://localhost:3000/contents')
+      .then(function(response){
+          $scope.contents = response.data;
+      });
   }
 
 
