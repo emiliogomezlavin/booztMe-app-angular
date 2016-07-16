@@ -8,20 +8,18 @@
         
         <link rel="stylesheet" href="css/style.css">
         <script src="bower_components/angular/angular.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/BooztMeController.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
+        <script src="controllers/users-controllers.js"></script>
+        <script src="routes/routes.js"></script>
         
     </head>
     <body>
       <div class="container">
-        <header class='navbar'>
-          
+        <header ng-include src="'templates/header.html'">
         </header>
 
-        <section class='container-fluid' ng-controller="BooztMeController as booztMe">
-          <h1>Welcome to Boozt Me!!!</h1>
-
-          <button ng-click="getContent()">Get Content</button>
+        <section class='container-fluid' ng-view>
 
         <!-- Form to add users or content  -->
 <!--           <div class="row">
@@ -34,19 +32,12 @@
               </form>
             </div>
           </div> -->
-
-          <div class='row'>
-            <div class='col-sm-4 col-md-4 col-lg-3' ng-repeat="content in contents">
-              <h4>{{content.title}}</h4>
-              <img height="100px" width="100px" src="{{content.url}}"></img>
-            <!--   <button type="delete" ng-click="{{deleteBoozt(content)}}">Delete</button> -->
-            </div>
           </div>
         </section>
 
-      <footer>
-        <p>Made with <span class='heart'>♥︎</span> by Emilio Gomez Lavin</p>
-      </footer>
+        <footer ng-include src="'templates/footer.html'">
+          
+        </footer>
       </div>
     </body>
 </html>
